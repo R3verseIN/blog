@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Nmap: Essential Commands for Network Scanning | r3versein blog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#8b5cf6',
+                        accent: '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-50 font-sans dark-mode">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">r3versein</div>
+                        <span class="text-sm bg-gray-800 px-2 py-1 rounded-md">blog</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="hover:text-accent transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../posts/index.html" class="hover:text-accent transition-colors relative group">
+                        Posts
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../index.html#about" class="hover:text-accent transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2 space-y-2">
+                <a href="../index.html" class="block py-2 hover:text-accent transition-colors">Home</a>
+                <a href="../posts/index.html" class="block py-2 hover:text-accent transition-colors">Posts</a>
+                <a href="../index.html#about" class="block py-2 hover:text-accent transition-colors">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="relative bg-primary py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-accent rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-48 -right-24 w-96 h-96 bg-secondary rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 pt-12">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Mastering Nmap: Essential Commands for Network Scanning</h1>
+                <div class="flex justify-center items-center text-sm mb-6 text-gray-300">
+                    <span>May 11, 2025</span>
+                    <span class="mx-2">•</span>
+                    <span>10 min read</span>
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-medium text-gray-300">Shaswata Roy</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="container mx-auto px-4 py-12 -mt-10">
+        <article class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg glass-effect">
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl leading-relaxed text-gray-300 mb-6">
+                    Nmap (Network Mapper) is one of the most powerful and versatile network scanning tools available to security professionals. Whether you're performing security audits, network inventories, or penetration testing, mastering Nmap commands is essential. In this guide, we'll explore essential Nmap commands and techniques for effective network reconnaissance.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Nmap Basics: Getting Started</h2>
+                <p class="mb-4">
+                    Before diving into advanced scanning techniques, let's cover the basic Nmap syntax and some fundamental scan types:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code>nmap [Scan Type] [Options] {target}</code></pre>
+                </div>
+                <p class="mb-6">
+                    The target can be a single IP address, a hostname, a network range, or multiple hosts specified in different ways. For example: 192.168.1.1, example.com, 192.168.1.1-254, or 192.168.1.0/24.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Essential Nmap Scan Types</h2>
+                <p class="mb-4">
+                    These are the most commonly used scan types you should know:
+                </p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>TCP SYN Scan (-sS)</strong>: The default and most popular scan. It's relatively stealthy and efficient.</li>
+                    <li><strong>TCP Connect Scan (-sT)</strong>: More obvious than SYN scan as it completes the TCP handshake.</li>
+                    <li><strong>UDP Scan (-sU)</strong>: For scanning UDP ports, which is often overlooked but critical.</li>
+                    <li><strong>Ping Scan (-sn)</strong>: Host discovery without port scanning; just identifies what's online.</li>
+                    <li><strong>Version Detection (-sV)</strong>: Determines service versions running on open ports.</li>
+                    <li><strong>OS Detection (-O)</strong>: Attempts to identify the operating system on target hosts.</li>
+                </ul>
+
+                <div class="bg-gray-900 p-6 rounded-lg mb-8 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-3 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">Pro Tip</h3>
+                    <p>
+                        Combine scan types for more comprehensive results. For example, <code>nmap -sS -sV -O 192.168.1.1</code> performs a SYN scan with version detection and OS fingerprinting.
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Basic Port Scanning Examples</h2>
+                <p class="mb-4">
+                    Here are some practical examples of Nmap commands for different scanning needs:
+                </p>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Scan a single target
+nmap 192.168.1.1
+
+# Scan multiple targets
+nmap 192.168.1.1 192.168.1.2
+
+# Scan a range of IPs
+nmap 192.168.1.1-50
+
+# Scan a subnet
+nmap 192.168.1.0/24
+
+# Scan targets from a file
+nmap -iL targets.txt</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Port Selection Options</h2>
+                <p class="mb-4">
+                    Control which ports Nmap scans with these options:
+                </p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Specific ports (-p)</strong>: Scan only selected ports</li>
+                    <li><strong>Most common ports (--top-ports)</strong>: Scan N most common ports</li>
+                    <li><strong>All ports (-p-)</strong>: Scan all 65535 ports</li>
+                    <li><strong>Range of ports (-p1-1000)</strong>: Scan ports 1-1000</li>
+                </ul>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Scan specific ports
+nmap -p 22,80,443 192.168.1.1
+
+# Scan top 100 most common ports
+nmap --top-ports 100 192.168.1.1
+
+# Scan all 65535 ports
+nmap -p- 192.168.1.1
+
+# Scan range of ports
+nmap -p 1-1000 192.168.1.1</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Advanced Scanning Techniques</h2>
+                <p class="mb-4">
+                    For more comprehensive scanning, combine multiple options:
+                </p>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Aggressive scan - enables OS detection, version detection, script scanning, and traceroute
+nmap -A 192.168.1.1
+
+# Detect service versions
+nmap -sV 192.168.1.1
+
+# OS detection
+nmap -O 192.168.1.1
+
+# Increase verbosity for more details
+nmap -v 192.168.1.1
+
+# Maximum verbosity for debugging
+nmap -vv 192.168.1.1</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Timing and Performance</h2>
+                <p class="mb-4">
+                    Control the speed of your scans with timing templates:
+                </p>
+                <ol class="list-decimal pl-6 mb-6 space-y-2">
+                    <li><strong>-T0 (Paranoid)</strong>: Very slow, used for IDS evasion</li>
+                    <li><strong>-T1 (Sneaky)</strong>: Slow, for more serious IDS evasion</li>
+                    <li><strong>-T2 (Polite)</strong>: Slows down to use less bandwidth and target resources</li>
+                    <li><strong>-T3 (Normal)</strong>: Default, a balance between accuracy and speed</li>
+                    <li><strong>-T4 (Aggressive)</strong>: Faster, assuming you're on a fast and reliable network</li>
+                    <li><strong>-T5 (Insane)</strong>: Extremely fast, sacrifices accuracy for speed</li>
+                </ol>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Perform an aggressive scan (faster)
+nmap -T4 192.168.1.1
+
+# Perform a stealthy, slower scan
+nmap -T1 192.168.1.1</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Nmap Scripting Engine (NSE)</h2>
+                <p class="mb-4">
+                    Nmap's scripting engine allows you to extend its functionality with scripts for various purposes:
+                </p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>--script=default</strong>: Run basic scripts</li>
+                    <li><strong>--script=vuln</strong>: Check for vulnerabilities</li>
+                    <li><strong>--script=discovery</strong>: Discover more information about the network</li>
+                    <li><strong>--script=safe</strong>: Run scripts considered safe (won't crash services)</li>
+                </ul>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Scan for vulnerabilities
+nmap --script=vuln 192.168.1.1
+
+# Run default scripts
+nmap -sC 192.168.1.1
+
+# Run specific scripts
+nmap --script=http-enum,http-headers 192.168.1.1</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Output Options</h2>
+                <p class="mb-4">
+                    Save scan results in different formats:
+                </p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>-oN</strong>: Normal output</li>
+                    <li><strong>-oX</strong>: XML output</li>
+                    <li><strong>-oG</strong>: Grepable output</li>
+                    <li><strong>-oA</strong>: Save in all formats</li>
+                </ul>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Save results to all formats
+nmap -oA scan_results 192.168.1.1
+
+# Save results in XML format
+nmap -oX scan_results.xml 192.168.1.1</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Firewall and IDS Evasion Techniques</h2>
+                <p class="mb-4">
+                    For penetration testing, evade detection with these options:
+                </p>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>-f</strong>: Fragment packets</li>
+                    <li><strong>--mtu</strong>: Specify MTU size</li>
+                    <li><strong>-D</strong>: Use decoys (makes scan appear to come from multiple sources)</li>
+                    <li><strong>--spoof-mac</strong>: Spoof your MAC address</li>
+                    <li><strong>--data-length</strong>: Append random data to sent packets</li>
+                </ul>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Fragment packets
+nmap -f 192.168.1.1
+
+# Use decoys
+nmap -D 10.0.0.1,10.0.0.2,ME 192.168.1.1
+
+# Set specific MTU
+nmap --mtu 16 192.168.1.1</code></pre>
+                </div>
+
+                <div class="border-t border-gray-700 my-10"></div>
+
+                <p class="mb-6">
+                    Remember that Nmap should only be used on networks you own or have explicit permission to scan. Unauthorized scanning may violate laws and terms of service agreements.
+                </p>
+
+                <p class="mb-6">
+                    Mastering these Nmap commands will significantly enhance your network scanning capabilities, whether you're an IT professional, security specialist, or networking enthusiast.
+                </p>
+
+                <div class="flex justify-between items-center">
+                    <a href="../posts/index.html" class="text-accent hover:text-secondary transition-colors">&larr; Back to Posts</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Related Posts -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent inline-block">More Posts Coming Soon</h2>
+            <div class="bg-gray-800 rounded-xl p-5 glass-effect border border-gray-700">
+                <p class="text-gray-300">Stay tuned for more cybersecurity articles and tutorials!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">r3versein</div>
+                        <span class="text-sm bg-gray-800 px-2 py-1 rounded-md">blog</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Exploring ideas, sharing knowledge.</p>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../posts/index.html" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        Posts
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../index.html#about" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 r3versein blog. All rights reserved. Created by Shaswata Roy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 

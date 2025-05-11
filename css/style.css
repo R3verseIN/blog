@@ -1,0 +1,222 @@
+/* Custom styles for r3versein blog */
+
+/* Adding some additional prose styling for blog content */
+.prose h2 {
+    color: #f0f0f0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.prose h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    height: 1.5rem;
+    width: 0.25rem;
+    background: linear-gradient(to bottom, #ec4899, #8b5cf6);
+    border-radius: 4px;
+}
+
+.prose h3 {
+    color: #f0f0f0;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: #d1d5db;
+}
+
+.prose a {
+    color: #8b5cf6;
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.prose a:hover {
+    color: #ec4899;
+}
+
+.prose a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(to right, #8b5cf6, #ec4899);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.prose a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.prose code {
+    background-color: #1f2937;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-family: 'Fira Code', monospace;
+    color: #d1d5db;
+    border: 1px solid #374151;
+}
+
+.prose pre {
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    background-color: #111827;
+    border: 1px solid #374151;
+}
+
+.prose ul, .prose ol {
+    color: #d1d5db;
+}
+
+/* Animation classes */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation delay variations */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* Custom card hover effect */
+.hover-card-rise {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hover-card-rise:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Gradient text for emphasis */
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #ec4899, #8b5cf6);
+}
+
+/* Custom button styles */
+.btn-gradient {
+    background-image: linear-gradient(to right, #ec4899, #8b5cf6);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    opacity: 0;
+}
+
+.btn-gradient:hover::before {
+    opacity: 1;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.3);
+}
+
+/* Glow effect for buttons and cards */
+.glow-effect {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.glow-effect:hover {
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.5);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #f3f4f6;
+}
+
+body.dark-mode .bg-white,
+body.dark-mode .bg-gray-50,
+body.dark-mode .bg-gray-100 {
+    background-color: #1e293b;
+}
+
+body.dark-mode .text-primary {
+    color: #f3f4f6;
+}
+
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-700 {
+    color: #cbd5e1;
+}
+
+body.dark-mode .border-gray-200,
+body.dark-mode .border-gray-300 {
+    border-color: #334155;
+}
+
+body.dark-mode .shadow-md,
+body.dark-mode .shadow-lg {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Glass effect */
+.glass-effect {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .prose {
+        font-size: 0.95rem;
+    }
+    
+    .prose h2 {
+        font-size: 1.5rem;
+    }
+    
+    .prose h3 {
+        font-size: 1.25rem;
+    }
+} 

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts | r3versein blog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#8b5cf6',
+                        accent: '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-50 font-sans dark-mode">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">r3versein</div>
+                        <span class="text-sm bg-gray-800 px-2 py-1 rounded-md">blog</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="hover:text-accent transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="./index.html" class="text-accent transition-colors relative group">
+                        Posts
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../index.html#about" class="hover:text-accent transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2 space-y-2">
+                <a href="../index.html" class="block py-2 hover:text-accent transition-colors">Home</a>
+                <a href="./index.html" class="block py-2 text-accent transition-colors">Posts</a>
+                <a href="../index.html#about" class="block py-2 hover:text-accent transition-colors">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="relative bg-primary py-24 overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-accent rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-48 -right-24 w-96 h-96 bg-secondary rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 pt-12">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">All Posts</h1>
+                <p class="text-xl opacity-90 leading-relaxed">Browse through all the articles on r3versein blog</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Posts List -->
+    <main class="container mx-auto px-4 py-16 -mt-10">
+        <!-- Search and Filter -->
+        <div class="max-w-5xl mx-auto mb-12">
+            <div class="flex flex-col md:flex-row gap-4 justify-between">
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="search" placeholder="Search posts..." class="w-full pl-10 pr-4 py-2 border border-gray-700 bg-gray-800 text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-btn bg-secondary text-white px-4 py-2 rounded-lg text-sm">All</button>
+                    <button class="filter-btn bg-gray-800 text-gray-300 hover:bg-secondary hover:text-white px-4 py-2 rounded-lg text-sm transition-colors">Cybersecurity</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts Grid -->
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post Card 1 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700">
+                    <a href="post1.html">
+                        <div class="h-48 bg-gray-700 relative overflow-hidden flex items-center justify-center">
+                            <div class="w-16 h-16 absolute text-gray-600 opacity-30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-gradient-to-r from-accent to-secondary text-white text-xs font-medium px-2 py-1 rounded">Cybersecurity</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-400 mb-2">
+                                <span>May 11, 2025</span>
+                                <span class="mx-2">•</span>
+                                <span>10 min read</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Mastering Nmap: Essential Commands for Network Scanning</h3>
+                            <p class="text-gray-400 mb-4">A comprehensive guide to using Nmap for effective network reconnaissance and security testing...</p>
+                            <div class="flex items-center">
+                                <span class="text-sm font-medium text-gray-300">Shaswata Roy</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coming Soon Section -->
+        <div class="max-w-5xl mx-auto mt-16">
+            <div class="glass-effect p-8 rounded-xl border border-gray-700 text-center">
+                <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">More Content Coming Soon</h3>
+                <p class="text-gray-300 mb-6">Stay tuned for more exciting articles and tutorials!</p>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="max-w-5xl mx-auto mt-12 flex justify-center">
+            <span class="inline-flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-secondary rounded-l-lg">
+                    1
+                </span>
+            </span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">r3versein</div>
+                        <span class="text-sm bg-gray-800 px-2 py-1 rounded-md">blog</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Exploring ideas, sharing knowledge.</p>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="./index.html" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        Posts
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../index.html#about" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 r3versein blog. All rights reserved. Created by Shaswata Roy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 
