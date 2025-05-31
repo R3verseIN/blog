@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>R3VER$E.IN BLOG</title>
+        <description>Cybersecurity, web development, and technology insights by Shaswata Roy</description>
+        <link>https://blog.r3verse.in/</link>
+        <atom:link href="https://blog.r3verse.in/feed.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <lastBuildDate>Fri, 31 May 2025 00:00:00 GMT</lastBuildDate>
+        <generator>R3VER$E.IN BLOG</generator>
+        <managingEditor>contact@r3versein.dev (Shaswata Roy)</managingEditor>
+        <webMaster>contact@r3versein.dev (Shaswata Roy)</webMaster>
+        <copyright>Copyright 2025, Shaswata Roy</copyright>
+        <category>Technology</category>
+        <category>Cybersecurity</category>        <category>Web Development</category>
+        
+        <item>
+            <title>Latest AI Cybersecurity Tools and Trends for 2025</title>
+            <description><![CDATA[Explore cutting-edge AI-powered cybersecurity tools, agentic AI in SOC operations, and predictive analytics transforming digital defense. Complete guide to modern AI security solutions.]]></description>
+            <link>https://blog.r3verse.in/posts/AI-CYBERSECURITY-TOOLS-2025.html</link>
+            <guid isPermaLink="true">https://blog.r3verse.in/posts/AI-CYBERSECURITY-TOOLS-2025.html</guid>
+            <pubDate>Fri, 31 May 2025 00:00:00 GMT</pubDate>
+            <author>contact@r3versein.dev (Shaswata Roy)</author>
+            <category>AI Security</category>
+            <category>Cybersecurity</category>
+            <category>Artificial Intelligence</category>
+        </item>
+        
+          <item>
+            <title>Hydra: Complete Guide to Brute Force Attack Tool</title>
+            <description><![CDATA[Master the powerful Hydra tool for password brute force attacks and authentication testing across multiple protocols. Learn commands, protocols, and ethical hacking techniques.]]></description>
+            <link>https://blog.r3verse.in/posts/HYDRA-COMPLETE-GUIDE.html</link>
+            <guid isPermaLink="true">https://blog.r3verse.in/posts/HYDRA-COMPLETE-GUIDE.html</guid>
+            <pubDate>Sat, 24 May 2025 00:00:00 GMT</pubDate>
+            <author>contact@r3versein.dev (Shaswata Roy)</author>
+            <category>Cybersecurity</category>
+            <category>Penetration Testing</category>
+            <category>Brute Force</category>
+        </item>
+        
+        <item>
+            <title>Mastering Nmap: Essential Commands for Network Scanning</title>
+            <description><![CDATA[Learn essential Nmap commands for network scanning and security testing. Complete guide to network reconnaissance with practical examples and best practices.]]></description>
+            <link>https://blog.r3verse.in/posts/post1.html</link>
+            <guid isPermaLink="true">https://blog.r3verse.in/posts/post1.html</guid>
+            <pubDate>Sun, 11 May 2025 00:00:00 GMT</pubDate>
+            <author>contact@r3versein.dev (Shaswata Roy)</author>
+            <category>Cybersecurity</category>
+            <category>Network Scanning</category>
+            <category>Nmap</category>
+        </item>
+    </channel>
+</rss>

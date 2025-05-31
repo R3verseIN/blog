@@ -3,7 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mastering Nmap: Essential Commands for Network Scanning | r3versein blog</title>
+    <title>Mastering Nmap: Essentia            <div class="prose prose-lg max-w-none">
+                <p class="text-xl leading-relaxed text-gray-300 mb-6">
+                    Nmap (Network Mapper) is one of the most powerful and versatile network scanning tools available to security professionals. Whether you're performing security audits, network inventories, or penetration testing, mastering Nmap commands is essential. In this guide, we'll explore essential Nmap commands and techniques for effective network reconnaissance.
+                </p>
+
+                <!-- Table of Contents -->
+                <nav class="bg-gray-900 border border-gray-700 rounded-lg p-6 mb-8">
+                    <h2 class="text-xl font-bold text-white mb-4">Table of Contents</h2>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-300">
+                        <li><a href="#nmap-basics" class="hover:text-accent transition-colors">Nmap Basics: Getting Started</a></li>
+                        <li><a href="#scan-types" class="hover:text-accent transition-colors">Essential Nmap Scan Types</a></li>
+                        <li><a href="#port-scanning" class="hover:text-accent transition-colors">Basic Port Scanning Examples</a></li>
+                        <li><a href="#port-selection" class="hover:text-accent transition-colors">Port Selection Options</a></li>
+                        <li><a href="#advanced-scanning" class="hover:text-accent transition-colors">Advanced Scanning Techniques</a></li>
+                        <li><a href="#timing-performance" class="hover:text-accent transition-colors">Timing and Performance</a></li>
+                        <li><a href="#nse-scripts" class="hover:text-accent transition-colors">Nmap Scripting Engine (NSE)</a></li>
+                        <li><a href="#output-options" class="hover:text-accent transition-colors">Output Options</a></li>
+                        <li><a href="#evasion-techniques" class="hover:text-accent transition-colors">Firewall and IDS Evasion Techniques</a></li>
+                    </ol>
+                </nav>
+
+                <h2 id="nmap-basics" class="text-2xl font-bold text-white mt-10 mb-4">Nmap Basics: Getting Started</h2>ands for Network Scanning | R3VER$E.IN BLOG</title>
+    <meta name="description" content="Learn essential Nmap commands for network scanning and security testing. Complete guide to network reconnaissance with practical examples and best practices.">
+    <meta name="keywords" content="nmap tutorial, network scanning, cybersecurity, penetration testing, nmap commands, security tools, network reconnaissance">
+    <meta name="author" content="Shaswata Roy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://blog.r3verse.in/posts/post1.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/assets/favicon-16x16.png">
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="R3VER$E.IN BLOG RSS Feed" href="https://blog.r3verse.in/feed.xml">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://blog.r3verse.in/posts/post1.html">
+    <meta property="og:title" content="Mastering Nmap: Essential Commands for Network Scanning">
+    <meta property="og:description" content="Learn essential Nmap commands for network scanning and security testing. Complete guide to network reconnaissance with practical examples and best practices.">
+    <meta property="og:image" content="https://blog.r3verse.in/assets/nmap-tutorial.jpg">
+    <meta property="og:site_name" content="R3VER$E.IN BLOG">
+    <meta property="article:published_time" content="2025-05-11T00:00:00Z">
+    <meta property="article:author" content="Shaswata Roy">
+    <meta property="article:section" content="Cybersecurity">
+    <meta property="article:tag" content="nmap">
+    <meta property="article:tag" content="network scanning">
+    <meta property="article:tag" content="cybersecurity">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://blog.r3verse.in/posts/post1.html">
+    <meta property="twitter:title" content="Mastering Nmap: Essential Commands for Network Scanning">
+    <meta property="twitter:description" content="Learn essential Nmap commands for network scanning and security testing. Complete guide to network reconnaissance with practical examples and best practices.">
+    <meta property="twitter:image" content="https://blog.r3verse.in/assets/nmap-tutorial.jpg">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Tailwind Config -->
@@ -28,6 +90,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mastering Nmap: Essential Commands for Network Scanning",
+        "description": "Learn essential Nmap commands for network scanning and security testing. Complete guide to network reconnaissance with practical examples and best practices.",
+        "image": "https://blog.r3verse.in/assets/nmap-tutorial.jpg",
+        "author": {
+            "@type": "Person",
+            "name": "Shaswata Roy",
+            "url": "https://blog.r3verse.in/"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Shaswata Roy"
+        },
+        "datePublished": "2025-05-11T00:00:00Z",
+        "dateModified": "2025-05-11T00:00:00Z",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://blog.r3verse.in/posts/post1.html"
+        },
+        "keywords": "nmap tutorial, network scanning, cybersecurity, penetration testing, nmap commands, security tools, network reconnaissance",
+        "articleSection": "Cybersecurity",
+        "wordCount": "2500",
+        "timeRequired": "PT10M"
+    }
+    </script>
 </head>
 <body class="bg-gray-50 font-sans dark-mode">
     <!-- Navbar -->
@@ -78,15 +170,28 @@
             <div class="absolute top-48 -right-24 w-96 h-96 bg-secondary rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s"></div>
         </div>
         <div class="container mx-auto px-4 relative z-10 pt-12">
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="Breadcrumb" class="mb-8">
+                <ol class="flex items-center space-x-2 text-sm text-gray-400">
+                    <li><a href="../index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li><a href="../posts/index.html" class="hover:text-accent transition-colors">Posts</a></li>
+                    <li><span class="mx-2">/</span></li>
+                    <li class="text-white">Mastering Nmap</li>
+                </ol>
+            </nav>
+            
             <div class="max-w-3xl mx-auto text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Mastering Nmap: Essential Commands for Network Scanning</h1>
                 <div class="flex justify-center items-center text-sm mb-6 text-gray-300">
-                    <span>May 11, 2025</span>
+                    <time datetime="2025-05-11">May 11, 2025</time>
                     <span class="mx-2">•</span>
                     <span>10 min read</span>
+                    <span class="mx-2">•</span>
+                    <span class="bg-gradient-to-r from-accent to-secondary text-white text-xs font-medium px-2 py-1 rounded">Cybersecurity</span>
                 </div>
                 <div class="flex items-center justify-center">
-                    <span class="font-medium text-gray-300">Shaswata Roy</span>
+                    <span class="font-medium text-gray-300">By Shaswata Roy</span>
                 </div>
             </div>
         </div>
@@ -94,8 +199,13 @@
 
     <!-- Article Content -->
     <main class="container mx-auto px-4 py-12 -mt-10">
-        <article class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg glass-effect">
-            <div class="prose prose-lg max-w-none">
+        <article class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-xl shadow-lg glass-effect" itemscope itemtype="https://schema.org/BlogPosting">
+            <meta itemprop="headline" content="Mastering Nmap: Essential Commands for Network Scanning">
+            <meta itemprop="description" content="Learn essential Nmap commands for network scanning and security testing. Complete guide to network reconnaissance with practical examples and best practices.">
+            <meta itemprop="datePublished" content="2025-05-11">
+            <meta itemprop="author" content="Shaswata Roy">
+            
+            <div class="prose prose-lg max-w-none"">
                 <p class="text-xl leading-relaxed text-gray-300 mb-6">
                     Nmap (Network Mapper) is one of the most powerful and versatile network scanning tools available to security professionals. Whether you're performing security audits, network inventories, or penetration testing, mastering Nmap commands is essential. In this guide, we'll explore essential Nmap commands and techniques for effective network reconnaissance.
                 </p>
@@ -111,7 +221,7 @@
                     The target can be a single IP address, a hostname, a network range, or multiple hosts specified in different ways. For example: 192.168.1.1, example.com, 192.168.1.1-254, or 192.168.1.0/24.
                 </p>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Essential Nmap Scan Types</h2>
+                <h2 id="scan-types" class="text-2xl font-bold text-white mt-10 mb-4">Essential Nmap Scan Types</h2>
                 <p class="mb-4">
                     These are the most commonly used scan types you should know:
                 </p>
@@ -131,7 +241,7 @@
                     </p>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Basic Port Scanning Examples</h2>
+                <h2 id="port-scanning" class="text-2xl font-bold text-white mt-10 mb-4">Basic Port Scanning Examples</h2>
                 <p class="mb-4">
                     Here are some practical examples of Nmap commands for different scanning needs:
                 </p>
@@ -153,7 +263,7 @@ nmap 192.168.1.0/24
 nmap -iL targets.txt</code></pre>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Port Selection Options</h2>
+                <h2 id="port-selection" class="text-2xl font-bold text-white mt-10 mb-4">Port Selection Options</h2>
                 <p class="mb-4">
                     Control which ports Nmap scans with these options:
                 </p>
@@ -178,7 +288,7 @@ nmap -p- 192.168.1.1
 nmap -p 1-1000 192.168.1.1</code></pre>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Advanced Scanning Techniques</h2>
+                <h2 id="advanced-scanning" class="text-2xl font-bold text-white mt-10 mb-4">Advanced Scanning Techniques</h2>
                 <p class="mb-4">
                     For more comprehensive scanning, combine multiple options:
                 </p>
@@ -200,7 +310,7 @@ nmap -v 192.168.1.1
 nmap -vv 192.168.1.1</code></pre>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Timing and Performance</h2>
+                <h2 id="timing-performance" class="text-2xl font-bold text-white mt-10 mb-4">Timing and Performance</h2>
                 <p class="mb-4">
                     Control the speed of your scans with timing templates:
                 </p>
@@ -221,7 +331,7 @@ nmap -T4 192.168.1.1
 nmap -T1 192.168.1.1</code></pre>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Nmap Scripting Engine (NSE)</h2>
+                <h2 id="nse-scripts" class="text-2xl font-bold text-white mt-10 mb-4">Nmap Scripting Engine (NSE)</h2>
                 <p class="mb-4">
                     Nmap's scripting engine allows you to extend its functionality with scripts for various purposes:
                 </p>
@@ -243,7 +353,7 @@ nmap -sC 192.168.1.1
 nmap --script=http-enum,http-headers 192.168.1.1</code></pre>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Output Options</h2>
+                <h2 id="output-options" class="text-2xl font-bold text-white mt-10 mb-4">Output Options</h2>
                 <p class="mb-4">
                     Save scan results in different formats:
                 </p>
@@ -262,7 +372,7 @@ nmap -oA scan_results 192.168.1.1
 nmap -oX scan_results.xml 192.168.1.1</code></pre>
                 </div>
 
-                <h2 class="text-2xl font-bold text-white mt-10 mb-4">Firewall and IDS Evasion Techniques</h2>
+                <h2 id="evasion-techniques" class="text-2xl font-bold text-white mt-10 mb-4">Firewall and IDS Evasion Techniques</h2>
                 <p class="mb-4">
                     For penetration testing, evade detection with these options:
                 </p>
@@ -295,9 +405,27 @@ nmap --mtu 16 192.168.1.1</code></pre>
                     Mastering these Nmap commands will significantly enhance your network scanning capabilities, whether you're an IT professional, security specialist, or networking enthusiast.
                 </p>
 
-                <div class="flex justify-between items-center">
-                    <a href="../posts/index.html" class="text-accent hover:text-secondary transition-colors">&larr; Back to Posts</a>
-                </div>
+                <!-- Article Footer -->
+                <footer class="border-t border-gray-700 pt-8 mt-8">
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-sm text-gray-400">Tags:</span>
+                        <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">nmap</span>
+                        <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">network scanning</span>
+                        <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">cybersecurity</span>
+                        <span class="bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded">penetration testing</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="../posts/index.html" class="text-accent hover:text-secondary transition-colors">&larr; Back to Posts</a>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-accent transition-colors" title="Share on Twitter">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-accent transition-colors" title="Share on LinkedIn">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </article>
     </main>
@@ -305,9 +433,28 @@ nmap --mtu 16 192.168.1.1</code></pre>
     <!-- Related Posts -->
     <section class="container mx-auto px-4 py-12">
         <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent inline-block">More Posts Coming Soon</h2>
-            <div class="bg-gray-800 rounded-xl p-5 glass-effect border border-gray-700">
-                <p class="text-gray-300">Stay tuned for more cybersecurity articles and tutorials!</p>
+            <h2 class="text-2xl font-bold mb-8 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent inline-block">Related Posts</h2>
+            <div class="grid gap-6">
+                <article class="bg-gray-800 rounded-xl p-6 glass-effect border border-gray-700 hover-card-rise">
+                    <a href="HYDRA-COMPLETE-GUIDE.html" class="block">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-2 hover:text-accent transition-colors">Hydra: Complete Guide to Brute Force Attack Tool</h3>
+                                <p class="text-gray-400 text-sm mb-3">Master the powerful Hydra tool for password brute force attacks and authentication testing across multiple protocols...</p>
+                                <div class="flex items-center text-xs text-gray-500">
+                                    <time datetime="2025-05-24">May 24, 2025</time>
+                                    <span class="mx-2">•</span>
+                                    <span>15 min read</span>
+                                </div>
+                            </div>
+                            <div class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </article>
             </div>
         </div>
     </section>
@@ -339,7 +486,7 @@ nmap --mtu 16 192.168.1.1</code></pre>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 r3versein blog. All rights reserved. Created by Shaswata Roy.</p>
+                <p>&copy; 2025 R3VER$E.IN BLOG. All rights reserved. Created by Shaswata Roy.</p>
             </div>
         </div>
     </footer>

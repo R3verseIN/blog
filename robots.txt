@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Important files
+Sitemap: https://blog.r3verse.in/sitemap.xml
+Sitemap: https://blog.r3verse.in/feed.xml
+
+# Block access to specific files if needed
+Disallow: /404.html
+Disallow: /.htaccess
+
+# Allow common crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Crawl delay (be respectful)
+Crawl-delay: 1

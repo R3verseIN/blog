@@ -3,7 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>r3versein blog | Home</title>
+    <title>R3VER$E.IN BLOG | Cybersecurity, Web Development & Tech Insights</title>
+    <meta name="description" content="Join Shaswata Roy's blog for expert insights on cybersecurity, web development, and technology. Learn Nmap, Hydra, and essential security tools through comprehensive tutorials.">
+    <meta name="keywords" content="cybersecurity, web development, nmap, hydra, security tools, programming, technology blog, shaswata roy">
+    <meta name="author" content="Shaswata Roy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://blog.r3verse.in/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/assets/favicon-16x16.png">
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="R3VER$E.IN BLOG RSS Feed" href="https://blog.r3verse.in/feed.xml">
+    
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="/blog/manifest.json">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blog.r3verse.in/">
+    <meta property="og:title" content="R3VER$E.IN BLOG | Cybersecurity, Web Development & Tech Insights">
+    <meta property="og:description" content="Join Shaswata Roy's blog for expert insights on cybersecurity, web development, and technology. Learn Nmap, Hydra, and essential security tools through comprehensive tutorials.">
+    <meta property="og:image" content="https://blog.r3verse.in/assets/og-image.jpg">
+    <meta property="og:site_name" content="R3VER$E.IN BLOG">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://blog.r3verse.in/">
+    <meta property="twitter:title" content="R3VER$E.IN BLOG | Cybersecurity, Web Development & Tech Insights">
+    <meta property="twitter:description" content="Join Shaswata Roy's blog for expert insights on cybersecurity, web development, and technology. Learn Nmap, Hydra, and essential security tools through comprehensive tutorials.">
+    <meta property="twitter:image" content="https://blog.r3verse.in/assets/og-image.jpg">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Tailwind Config -->
@@ -28,6 +66,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "R3VER$E.IN BLOG",
+        "description": "A blog about cybersecurity, web development, and technology by Shaswata Roy",
+        "url": "https://blog.r3verse.in/",
+        "author": {
+            "@type": "Person",
+            "name": "Shaswata Roy",
+            "jobTitle": "Web Developer & Cybersecurity Enthusiast",
+            "url": "https://blog.r3verse.in/"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Shaswata Roy"
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "Mastering Nmap: Essential Commands for Network Scanning",
+                "description": "A comprehensive guide to using Nmap for effective network reconnaissance and security testing",
+                "datePublished": "2025-05-11",
+                "author": {
+                    "@type": "Person",
+                    "name": "Shaswata Roy"
+                },
+                "url": "https://blog.r3verse.in/posts/post1.html"
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Hydra: Complete Guide to Brute Force Attack Tool",
+                "description": "Master the powerful Hydra tool for password brute force attacks and authentication testing across multiple protocols",
+                "datePublished": "2025-05-24",
+                "author": {
+                    "@type": "Person",
+                    "name": "Shaswata Roy"
+                },
+                "url": "https://blog.r3verse.in/posts/HYDRA-COMPLETE-GUIDE.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-gray-50 font-sans dark-mode">
     <!-- Navbar -->
@@ -77,7 +160,7 @@
         </div>
         <div class="container mx-auto px-4 relative z-10 pt-12">
             <div class="max-w-3xl mx-auto text-center text-white">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Welcome to r3versein blog</h1>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Welcome to R3VER$E.IN BLOG</h1>
                 <p class="text-xl opacity-90 mb-8 leading-relaxed">Exploring ideas, sharing knowledge, and documenting the journey.</p>
                 <a href="#featured" class="btn-gradient glow-effect inline-block py-3 px-8 rounded-full text-lg font-medium transition-all transform hover:scale-105">
                     Explore Posts
@@ -94,10 +177,10 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-accent to-secondary mx-auto mt-3"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
                 <!-- Post Card 1 -->
-                <div class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700">
-                    <a href="posts/post1.html">
+                <article class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700" role="listitem">
+                    <a href="posts/post1.html" aria-label="Read about Mastering Nmap: Essential Commands for Network Scanning">
                         <div class="h-48 bg-gray-700 relative overflow-hidden flex items-center justify-center">
                             <div class="w-16 h-16 absolute text-gray-600 opacity-30">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,7 +191,7 @@
                         </div>
                         <div class="p-6">
                             <div class="flex items-center text-sm text-gray-400 mb-2">
-                                <span>May 11, 2025</span>
+                                <time datetime="2025-05-11">May 11, 2025</time>
                                 <span class="mx-2">•</span>
                                 <span>10 min read</span>
                             </div>
@@ -119,11 +202,11 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </article>
                 
                 <!-- Post Card 2 -->
-                <div class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700">
-                    <a href="posts/post2.html">
+                <article class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700" role="listitem">
+                    <a href="posts/HYDRA-COMPLETE-GUIDE.html" aria-label="Read about Hydra: Complete Guide to Brute Force Attack Tool">
                         <div class="h-48 bg-gray-700 relative overflow-hidden flex items-center justify-center">
                             <div class="w-16 h-16 absolute text-gray-600 opacity-30">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -134,7 +217,7 @@
                         </div>
                         <div class="p-6">
                             <div class="flex items-center text-sm text-gray-400 mb-2">
-                                <span>May 24, 2025</span>
+                                <time datetime="2025-05-24">May 24, 2025</time>
                                 <span class="mx-2">•</span>
                                 <span>15 min read</span>
                             </div>
@@ -145,7 +228,33 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </article>
+
+                <!-- Post Card 3 -->
+                <article class="bg-gray-800 rounded-xl overflow-hidden hover-card-rise glow-effect border border-gray-700" role="listitem">
+                    <a href="posts/AI-CYBERSECURITY-TOOLS-2025.html" aria-label="Read about Latest AI Cybersecurity Tools and Trends for 2025">
+                        <div class="h-48 bg-gray-700 relative overflow-hidden flex items-center justify-center">
+                            <div class="w-16 h-16 absolute text-gray-600 opacity-30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-gradient-to-r from-accent to-secondary text-white text-xs font-medium px-2 py-1 rounded">AI Security</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center text-sm text-gray-400 mb-2">
+                                <time datetime="2025-05-31">May 31, 2025</time>
+                                <span class="mx-2">•</span>
+                                <span>18 min read</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Latest AI Cybersecurity Tools and Trends for 2025</h3>
+                            <p class="text-gray-400 mb-4">Explore cutting-edge AI-powered cybersecurity tools, agentic AI in SOC operations, and predictive analytics transforming digital defense...</p>
+                            <div class="flex items-center">
+                                <span class="text-sm font-medium text-gray-300">Shaswata Roy</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
             </div>
 
             <div class="text-center mt-16">
@@ -165,11 +274,13 @@
                     <div class="w-24 h-1 bg-gradient-to-r from-accent to-secondary mx-auto mt-3"></div>
                 </div>
                 
-                <div class="glass-effect p-8 rounded-xl shadow-lg">
+                <div class="glass-effect p-8 rounded-xl shadow-lg" itemscope itemtype="https://schema.org/Person">
                     <div class="flex flex-col md:flex-row items-center">
                         <div class="md:w-full text-center md:text-left">
-                            <h3 class="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent inline-block">Shaswata Roy</h3>
-                            <p class="text-gray-300 mb-4 leading-relaxed">Hi there! I'm Shaswata, a passionate web developer and technology enthusiast. This blog is my space to share insights, tutorials, and thoughts about web development, programming, and digital trends.</p>
+                            <h3 class="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent inline-block" itemprop="name">Shaswata Roy</h3>
+                            <meta itemprop="jobTitle" content="Web Developer & Cybersecurity Enthusiast">
+                            <meta itemprop="url" content="https://blog.r3verse.in/">
+                            <p class="text-gray-300 mb-4 leading-relaxed" itemprop="description">Hi there! I'm Shaswata, a passionate web developer and technology enthusiast. This blog is my space to share insights, tutorials, and thoughts about web development, programming, and digital trends.</p>
                             <p class="text-gray-300 mb-6 leading-relaxed">With several years of experience in the field, I aim to create content that's both educational and inspiring for developers of all skill levels.</p>
                             <div class="flex space-x-6 justify-center md:justify-start">
                                 <a href="#" class="text-gray-400 hover:text-accent transition-colors transform hover:scale-110">
@@ -226,7 +337,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 r3versein blog. All rights reserved. Created by Shaswata Roy.</p>
+                <p>&copy; 2025 R3VER$E.IN BLOG. All rights reserved. Created by Shaswata Roy.</p>
             </div>
         </div>
     </footer>
